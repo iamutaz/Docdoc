@@ -1,4 +1,4 @@
-import 'package:docdoc/core/theming/colorsmabager.dart';
+import 'package:docdoc/core/theming/colorsmanager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,9 +28,19 @@ class TextStyles {
     fontSize: 24.sp,
     fontWeight: FontWeight.w700,
   );
-  static TextStyle gray15reqular = TextStyle(
+  static TextStyle lightgray15reqular = TextStyle(
     color: Colorsmanager.lightGray,
     fontSize: 15.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle lightergray15medium = TextStyle(
+    color: Colorsmanager.lighterGray,
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle blue12reqular = TextStyle(
+    color: Colorsmanager.mainBlue,
+    fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
 }
