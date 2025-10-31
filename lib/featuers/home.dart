@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 8120),
+      designSize: const Size(375, 812),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onboarding,
