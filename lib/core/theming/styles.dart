@@ -43,4 +43,19 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle morelightgray15reqular = TextStyle(
+    color: Colorsmanager.morelightgray,
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle lightblack12reqular = TextStyle(
+    color: Colorsmanager.lightblack,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle blue12semibold = TextStyle(
+    color: Colorsmanager.mainBlue,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w600,
+  );
 }
