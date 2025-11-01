@@ -21,7 +21,7 @@ Widget doctorandbackground() {
         child: Image.asset("assets/images/onboarding_doctor.png"),
       ),
       Positioned(
-        bottom: 400.h,
+        bottom: 40.h,
         top: 0,
         left: 0,
         right: 0,

@@ -16,12 +16,12 @@ class OnboardingScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 50.h),
+                padding: EdgeInsets.only(top: 40.h),
                 child: docAndLogo(),
               ),
-              SizedBox(height: 800.h),
+              SizedBox(height: 30.h),
               doctorandbackground(),
-              buttonanddescription(),
+              Buttonanddescription(),
             ],
           ),
         ),
