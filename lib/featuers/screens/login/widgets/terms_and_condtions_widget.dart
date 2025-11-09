@@ -13,10 +13,10 @@ RichText termsandcondtionswidget() {
         ),
         TextSpan(
           text: " Terms & Conditions ",
-          style: TextStyles.lightblack12reqular,
+          style: TextStyles.darkblue12reqular,
         ),
         TextSpan(text: " and ", style: TextStyles.morelightgray15reqular),
-        TextSpan(text: "PrivacyPolicy.", style: TextStyles.lightblack12reqular),
+        TextSpan(text: "PrivacyPolicy.", style: TextStyles.darkblue12reqular),
       ],
     ),
   );

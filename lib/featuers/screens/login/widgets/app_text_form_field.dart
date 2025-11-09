@@ -9,7 +9,10 @@ class AppTextFormField extends StatelessWidget {
   Widget? suffixIcon;
   InputBorder? enabledBorder;
   InputBorder? focusedBorder;
+  InputBorder? errorBorder;
   bool? obscureText;
+  TextEditingController? textEditingController;
+  Function(String?) validator;
 
   AppTextFormField({
     super.key,
@@ -19,12 +22,20 @@ class AppTextFormField extends StatelessWidget {
     this.hintStyle,
     this.obscureText,
     this.suffixIcon,
+    this.textEditingController,
+    required this.validator,
+    this.errorBorder,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textEditingController,
       decoration: InputDecoration(
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.red),
+        ),
         hintText: hintText,
         hintStyle: hintStyle ?? TextStyles.lightergray15medium,
         suffixIcon: suffixIcon,
@@ -43,10 +54,18 @@ class AppTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(color: Colorsmanager.mainBlue, width: 1.w),
             ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.red),
+        ),
+
         filled: true,
         fillColor: Colorsmanager.offwhite,
       ),
       obscureText: obscureText ?? false,
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }

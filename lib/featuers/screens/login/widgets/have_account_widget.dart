@@ -7,7 +7,7 @@ RichText haveaccountwidget() {
       children: [
         TextSpan(
           text: "don't have an account yet?",
-          style: TextStyles.lightblack12reqular,
+          style: TextStyles.darkblue12reqular,
         ),
         TextSpan(text: " Sign Up", style: TextStyles.blue12semibold),
       ],

@@ -48,7 +48,7 @@ class TextStyles {
     fontSize: 11.sp,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle lightblack12reqular = TextStyle(
+  static TextStyle darkblue12reqular = TextStyle(
     color: Colorsmanager.lightblack,
     fontSize: 12.sp,
     fontWeight: FontWeight.w500,
