@@ -12,17 +12,17 @@ class LoginCubitCubit extends Cubit<LoginCubitState> {
   final formkey = GlobalKey<FormState>();
   LoginCubitCubit(this._loginRepo) : super(LoginCubitState.initial());
 
-  void emitLoginState(Loginrequestbody loginrequestbody) async {
+  void emitLoginState(Loginrequestbody loginrequesbody) async {
     emit(LoginCubitState.loading());
-    final response = await _loginRepo.login(loginrequestbody);
+    final response = await _loginRepo.login(loginrequesbody);
     response.when(
       success: (loginResponseBody) {
+        print("success in cubit");
         emit(LoginCubitState.success(loginResponseBody));
       },
       failure: (error) {
-        emit(
-          LoginCubitState.failure(error: error.loginResponseBody.message ?? ""),
-        );
+        print("failure in cubit");
+        emit(LoginCubitState.failure(error: error.apiErrorModel.message ?? ""));
       },
     );
   }

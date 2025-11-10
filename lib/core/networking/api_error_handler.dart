@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:docdoc/featuers/screens/login/data/models/login_response_body.dart';
 
 import 'api_constants.dart';
+import 'api_error_model.dart';
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
@@ -66,70 +66,70 @@ class ResponseMessage {
 }
 
 extension DataSourceExtension on DataSource {
-  LoginResponseBody getFailure() {
+  ApiErrorModel getFailure() {
     switch (this) {
       case DataSource.NO_CONTENT:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.NO_CONTENT,
           message: ResponseMessage.NO_CONTENT,
         );
       case DataSource.BAD_REQUEST:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.BAD_REQUEST,
           message: ResponseMessage.BAD_REQUEST,
         );
       case DataSource.FORBIDDEN:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.FORBIDDEN,
           message: ResponseMessage.FORBIDDEN,
         );
       case DataSource.UNAUTORISED:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.UNAUTORISED,
           message: ResponseMessage.UNAUTORISED,
         );
       case DataSource.NOT_FOUND:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.NOT_FOUND,
           message: ResponseMessage.NOT_FOUND,
         );
       case DataSource.INTERNAL_SERVER_ERROR:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.INTERNAL_SERVER_ERROR,
           message: ResponseMessage.INTERNAL_SERVER_ERROR,
         );
       case DataSource.CONNECT_TIMEOUT:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.CONNECT_TIMEOUT,
           message: ResponseMessage.CONNECT_TIMEOUT,
         );
       case DataSource.CANCEL:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.CANCEL,
           message: ResponseMessage.CANCEL,
         );
       case DataSource.RECIEVE_TIMEOUT:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.RECIEVE_TIMEOUT,
           message: ResponseMessage.RECIEVE_TIMEOUT,
         );
       case DataSource.SEND_TIMEOUT:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.SEND_TIMEOUT,
           message: ResponseMessage.SEND_TIMEOUT,
         );
       case DataSource.CACHE_ERROR:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.CACHE_ERROR,
           message: ResponseMessage.CACHE_ERROR,
         );
       case DataSource.NO_INTERNET_CONNECTION:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.NO_INTERNET_CONNECTION,
           message: ResponseMessage.NO_INTERNET_CONNECTION,
         );
       case DataSource.DEFAULT:
-        return LoginResponseBody(
+        return ApiErrorModel(
           code: ResponseCode.DEFAULT,
           message: ResponseMessage.DEFAULT,
         );
@@ -138,20 +138,20 @@ extension DataSourceExtension on DataSource {
 }
 
 class ErrorHandler implements Exception {
-  late LoginResponseBody loginResponseBody;
+  late ApiErrorModel apiErrorModel;
 
   ErrorHandler.handle(dynamic error) {
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
-      loginResponseBody = _handleError(error);
+      apiErrorModel = _handleError(error);
     } else {
       // default error
-      loginResponseBody = DataSource.DEFAULT.getFailure();
+      apiErrorModel = DataSource.DEFAULT.getFailure();
     }
   }
 }
 
-LoginResponseBody _handleError(DioException error) {
+ApiErrorModel _handleError(DioException error) {
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
       return DataSource.CONNECT_TIMEOUT.getFailure();
@@ -163,7 +163,7 @@ LoginResponseBody _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return LoginResponseBody.fromJson(error.response!.data);
+        return ApiErrorModel.fromJson(error.response!.data);
       } else {
         return DataSource.DEFAULT.getFailure();
       }
@@ -171,7 +171,7 @@ LoginResponseBody _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return LoginResponseBody.fromJson(error.response!.data);
+        return ApiErrorModel.fromJson(error.response!.data);
       } else {
         return DataSource.DEFAULT.getFailure();
       }
@@ -180,8 +180,6 @@ LoginResponseBody _handleError(DioException error) {
     case DioExceptionType.connectionError:
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }
 }

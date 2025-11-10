@@ -13,8 +13,10 @@ class LoginRepo {
   ) async {
     try {
       var response = await _webServices.login(loginrequestbody);
+      print("all things is good in repo");
       return ApiResult.success(response);
     } catch (error) {
+      print("catch in repo");
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

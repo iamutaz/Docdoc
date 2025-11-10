@@ -29,6 +29,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
     setupPasswordController();
   }
 
+  @override
+  void dispose() {
+    passWordController.dispose();
+    super.dispose();
+  }
+
   void setupPasswordController() {
     passWordController.addListener(() {
       setState(() {

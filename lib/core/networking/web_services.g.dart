@@ -22,12 +22,12 @@ class _WebServices implements WebServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<LoginResponseBody> login(Loginrequestbody loginrequsetbody) async {
+  Future<LoginResponseBody> login(Loginrequestbody loginrequestbody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(loginrequsetbody.toJson());
+    _data.addAll(loginrequestbody.toJson());
     final _options = _setStreamType<LoginResponseBody>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(

@@ -11,5 +11,5 @@ abstract class WebServices {
   factory WebServices(Dio dio, {String? baseUrl}) = _WebServices;
 
   @POST(ApiConstants.login)
-  Future<LoginResponseBody> login(@Body() Loginrequestbody loginrequsetbody);
+  Future<LoginResponseBody> login(@Body() Loginrequestbody loginrequestbody);
 }
