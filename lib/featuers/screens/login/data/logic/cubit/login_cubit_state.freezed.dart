@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'api_result.dart';
+part of 'login_cubit_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,21 +12,15 @@ part of 'api_result.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$ApiResult<T> implements DiagnosticableTreeMixin {
+mixin _$LoginCubitState<T> {
 
 
 
 
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'ApiResult<$T>'))
-    ;
-}
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiResult<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginCubitState<T>);
 }
 
 
@@ -34,21 +28,21 @@ bool operator ==(Object other) {
 int get hashCode => runtimeType.hashCode;
 
 @override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ApiResult<$T>()';
+String toString() {
+  return 'LoginCubitState<$T>()';
 }
 
 
 }
 
 /// @nodoc
-class $ApiResultCopyWith<T,$Res>  {
-$ApiResultCopyWith(ApiResult<T> _, $Res Function(ApiResult<T>) __);
+class $LoginCubitStateCopyWith<T,$Res>  {
+$LoginCubitStateCopyWith(LoginCubitState<T> _, $Res Function(LoginCubitState<T>) __);
 }
 
 
-/// Adds pattern-matching-related methods to [ApiResult].
-extension ApiResultPatterns<T> on ApiResult<T> {
+/// Adds pattern-matching-related methods to [LoginCubitState].
+extension LoginCubitStatePatterns<T> on LoginCubitState<T> {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -61,10 +55,12 @@ extension ApiResultPatterns<T> on ApiResult<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Success<T> value)?  success,TResult Function( Failure<T> value)?  failure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( Loading<T> value)?  loading,TResult Function( Success<T> value)?  success,TResult Function( Failure<T> value)?  failure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case Success() when success != null:
+case _Initial() when initial != null:
+return initial(_that);case Loading() when loading != null:
+return loading(_that);case Success() when success != null:
 return success(_that);case Failure() when failure != null:
 return failure(_that);case _:
   return orElse();
@@ -84,10 +80,12 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Success<T> value)  success,required TResult Function( Failure<T> value)  failure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( Loading<T> value)  loading,required TResult Function( Success<T> value)  success,required TResult Function( Failure<T> value)  failure,}){
 final _that = this;
 switch (_that) {
-case Success():
+case _Initial():
+return initial(_that);case Loading():
+return loading(_that);case Success():
 return success(_that);case Failure():
 return failure(_that);case _:
   throw StateError('Unexpected subclass');
@@ -106,10 +104,12 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Success<T> value)?  success,TResult? Function( Failure<T> value)?  failure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( Loading<T> value)?  loading,TResult? Function( Success<T> value)?  success,TResult? Function( Failure<T> value)?  failure,}){
 final _that = this;
 switch (_that) {
-case Success() when success != null:
+case _Initial() when initial != null:
+return initial(_that);case Loading() when loading != null:
+return loading(_that);case Success() when success != null:
 return success(_that);case Failure() when failure != null:
 return failure(_that);case _:
   return null;
@@ -128,9 +128,11 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( T data)?  success,TResult Function( ErrorHandler error)?  failure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( T data)?  success,TResult Function( String error)?  failure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case Success() when success != null:
+case _Initial() when initial != null:
+return initial();case Loading() when loading != null:
+return loading();case Success() when success != null:
 return success(_that.data);case Failure() when failure != null:
 return failure(_that.error);case _:
   return orElse();
@@ -150,9 +152,11 @@ return failure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( T data)  success,required TResult Function( ErrorHandler error)  failure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( T data)  success,required TResult Function( String error)  failure,}) {final _that = this;
 switch (_that) {
-case Success():
+case _Initial():
+return initial();case Loading():
+return loading();case Success():
 return success(_that.data);case Failure():
 return failure(_that.error);case _:
   throw StateError('Unexpected subclass');
@@ -171,9 +175,11 @@ return failure(_that.error);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( T data)?  success,TResult? Function( ErrorHandler error)?  failure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( T data)?  success,TResult? Function( String error)?  failure,}) {final _that = this;
 switch (_that) {
-case Success() when success != null:
+case _Initial() when initial != null:
+return initial();case Loading() when loading != null:
+return loading();case Success() when success != null:
 return success(_that.data);case Failure() when failure != null:
 return failure(_that.error);case _:
   return null;
@@ -186,25 +192,83 @@ return failure(_that.error);case _:
 /// @nodoc
 
 
-class Success<T> with DiagnosticableTreeMixin implements ApiResult<T> {
+class _Initial<T> implements LoginCubitState<T> {
+  const _Initial();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial<T>);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'LoginCubitState<$T>.initial()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class Loading<T> implements LoginCubitState<T> {
+  const Loading();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading<T>);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'LoginCubitState<$T>.loading()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class Success<T> implements LoginCubitState<T> {
   const Success(this.data);
   
 
  final  T data;
 
-/// Create a copy of ApiResult
+/// Create a copy of LoginCubitState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $SuccessCopyWith<T, Success<T>> get copyWith => _$SuccessCopyWithImpl<T, Success<T>>(this, _$identity);
 
 
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'ApiResult<$T>.success'))
-    ..add(DiagnosticsProperty('data', data));
-}
 
 @override
 bool operator ==(Object other) {
@@ -216,15 +280,15 @@ bool operator ==(Object other) {
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(data));
 
 @override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ApiResult<$T>.success(data: $data)';
+String toString() {
+  return 'LoginCubitState<$T>.success(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SuccessCopyWith<T,$Res> implements $ApiResultCopyWith<T, $Res> {
+abstract mixin class $SuccessCopyWith<T,$Res> implements $LoginCubitStateCopyWith<T, $Res> {
   factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) _then) = _$SuccessCopyWithImpl;
 @useResult
 $Res call({
@@ -243,7 +307,7 @@ class _$SuccessCopyWithImpl<T,$Res>
   final Success<T> _self;
   final $Res Function(Success<T>) _then;
 
-/// Create a copy of ApiResult
+/// Create a copy of LoginCubitState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
   return _then(Success<T>(
@@ -258,25 +322,19 @@ as T,
 /// @nodoc
 
 
-class Failure<T> with DiagnosticableTreeMixin implements ApiResult<T> {
-  const Failure(this.error);
+class Failure<T> implements LoginCubitState<T> {
+  const Failure({required this.error});
   
 
- final  ErrorHandler error;
+ final  String error;
 
-/// Create a copy of ApiResult
+/// Create a copy of LoginCubitState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $FailureCopyWith<T, Failure<T>> get copyWith => _$FailureCopyWithImpl<T, Failure<T>>(this, _$identity);
 
 
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'ApiResult<$T>.failure'))
-    ..add(DiagnosticsProperty('error', error));
-}
 
 @override
 bool operator ==(Object other) {
@@ -288,19 +346,19 @@ bool operator ==(Object other) {
 int get hashCode => Object.hash(runtimeType,error);
 
 @override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ApiResult<$T>.failure(error: $error)';
+String toString() {
+  return 'LoginCubitState<$T>.failure(error: $error)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $FailureCopyWith<T,$Res> implements $ApiResultCopyWith<T, $Res> {
+abstract mixin class $FailureCopyWith<T,$Res> implements $LoginCubitStateCopyWith<T, $Res> {
   factory $FailureCopyWith(Failure<T> value, $Res Function(Failure<T>) _then) = _$FailureCopyWithImpl;
 @useResult
 $Res call({
- ErrorHandler error
+ String error
 });
 
 
@@ -315,12 +373,12 @@ class _$FailureCopyWithImpl<T,$Res>
   final Failure<T> _self;
   final $Res Function(Failure<T>) _then;
 
-/// Create a copy of ApiResult
+/// Create a copy of LoginCubitState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
   return _then(Failure<T>(
-null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as ErrorHandler,
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
