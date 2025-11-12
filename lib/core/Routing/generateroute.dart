@@ -1,6 +1,8 @@
 import 'package:docdoc/core/DI/get_it.dart';
 import 'package:docdoc/core/Routing/routes.dart';
 import 'package:docdoc/featuers/screens/Home/home_screen.dart';
+import 'package:docdoc/featuers/screens/Sign_in/data/logic/cubit/signin_cubit.dart';
+import 'package:docdoc/featuers/screens/Sign_in/sign_in.dart';
 import 'package:docdoc/featuers/screens/login/data/logic/cubit/login_cubit_cubit.dart';
 import 'package:docdoc/featuers/screens/login/login.dart';
 import 'package:docdoc/featuers/screens/onboarding/onboarding_screen.dart';
@@ -21,6 +23,13 @@ class Generateroute {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
+      case Routes.signIn:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SigninCubit>(),
+            child: SignIn(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(body: Center(child: Text("no screen "))),

@@ -17,11 +17,9 @@ class LoginCubitCubit extends Cubit<LoginCubitState> {
     final response = await _loginRepo.login(loginrequesbody);
     response.when(
       success: (loginResponseBody) {
-        print("success in cubit");
         emit(LoginCubitState.success(loginResponseBody));
       },
       failure: (error) {
-        print("failure in cubit");
         emit(LoginCubitState.failure(error: error.apiErrorModel.message ?? ""));
       },
     );
