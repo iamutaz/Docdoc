@@ -1,32 +1,36 @@
 import 'package:docdoc/core/Routing/routes.dart';
 import 'package:docdoc/core/helpers/extension.dart';
 import 'package:docdoc/core/theming/styles.dart';
+import 'package:docdoc/featuers/screens/Sign_in/data/logic/cubit/signin_cubit.dart';
+import 'package:docdoc/featuers/screens/Sign_in/data/logic/cubit/signin_state.dart';
 import 'package:docdoc/featuers/screens/login/data/logic/cubit/login_cubit_cubit.dart';
 import 'package:docdoc/featuers/screens/login/data/logic/cubit/login_cubit_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginBlocListner extends StatelessWidget {
-  const LoginBlocListner({super.key});
+class SigninBlocListner extends StatelessWidget {
+  const SigninBlocListner({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubitCubit, LoginCubitState>(
+    return BlocListener<SigninCubit, SigninState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Failure,
+          current is SignupLoading ||
+          current is SignupSuccess ||
+          current is SignupFailure,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () => showDialog(
+          signuploading: () => showDialog(
             context: context,
             builder: (context) {
               return Center(child: CircularProgressIndicator());
             },
           ),
-          success: (data) {
+          signupsuccess: (data) {
             context.pop();
             context.pushNamed(Routes.homeScreen);
           },
-          failure: (error) {
+          signupfailure: (error) {
             setupErrorState(context, error);
           },
         );

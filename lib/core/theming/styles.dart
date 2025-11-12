@@ -58,4 +58,9 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle gray14reqular = TextStyle(
+    color: Colorsmanager.gray,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+  );
 }

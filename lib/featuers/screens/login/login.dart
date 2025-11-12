@@ -2,8 +2,8 @@ import 'package:docdoc/core/theming/styles.dart';
 import 'package:docdoc/core/widgets/AppTextButton.dart';
 import 'package:docdoc/featuers/screens/login/data/logic/cubit/login_cubit_cubit.dart';
 import 'package:docdoc/featuers/screens/login/data/models/loginrequestbody.dart';
+import 'package:docdoc/featuers/screens/login/widgets/dont_have_account_widget.dart';
 import 'package:docdoc/featuers/screens/login/widgets/email_and_password.dart';
-import 'package:docdoc/featuers/screens/login/widgets/have_account_widget.dart';
 import 'package:docdoc/featuers/screens/login/widgets/login_bloc_listner.dart';
 import 'package:docdoc/featuers/screens/login/widgets/terms_and_condtions_widget.dart';
 import 'package:docdoc/featuers/screens/login/widgets/welcomeback.dart';
@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                     SizedBox(height: 50.h),
                     termsandcondtionswidget(),
                     SizedBox(height: 30.h),
-                    haveaccountwidget(),
+                    donthaveaccountwidget(context),
                     LoginBlocListner(),
                   ],
                 ),

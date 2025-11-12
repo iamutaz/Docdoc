@@ -5,6 +5,10 @@ class AppRegex {
     ).hasMatch(email);
   }
 
+  static bool isNumberValid(String number) {
+    return RegExp(r'^(?:\+963|00963|0)?9\d{8}$').hasMatch(number);
+  }
+
   static bool isPasswordValid(String password) {
     return RegExp(
       r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",

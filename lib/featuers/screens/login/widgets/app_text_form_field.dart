@@ -13,10 +13,12 @@ class AppTextFormField extends StatelessWidget {
   bool? obscureText;
   TextEditingController? textEditingController;
   Function(String?) validator;
+  Widget? prefixIcon;
 
   AppTextFormField({
     super.key,
     required this.hintText,
+    this.prefixIcon,
     this.enabledBorder,
     this.focusedBorder,
     this.hintStyle,
@@ -32,6 +34,7 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       controller: textEditingController,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: Colors.red),
