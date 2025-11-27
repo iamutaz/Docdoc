@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
                         "Forget password",
-                        style: TextStyles.blue12reqular,
+                        style: TextStyles.mainblue12reqular,
                       ),
                     ),
                     SizedBox(height: 32.h),

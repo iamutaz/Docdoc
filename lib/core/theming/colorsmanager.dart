@@ -10,5 +10,9 @@ class Colorsmanager {
   static const Color offwhite = Color(0xFFFDFDFF);
   static const Color enabledBorderbordercolor = Color(0xFFEDEDED);
   static const Color morelightgray = Color(0xFF9E9E9E);
-  static const Color lightblack = Color(0xFF242424);
+  static const Color darkblue = Color(0xFF242424);
+  static const Color morelightergray = Color(0xFF616161);
+  static const Color notibackcolor = Color(0xFFF5F5F5);
+  static const Color lightblue = Color(0xFFF4F8FF);
+  static const Color lightblack = Color(0xFF151515);
 }

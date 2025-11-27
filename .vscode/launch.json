@@ -8,7 +8,7 @@
             "name": "docdoc Development",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
+            "flutterMode": "debug",
             "program": "lib/main_development.dart",
             "args": ["--flavor","Development","--target","lib/main_development.dart"]
         },

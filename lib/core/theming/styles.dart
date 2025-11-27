@@ -13,6 +13,11 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle gray12miduem = TextStyle(
+    color: Colorsmanager.gray,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle black24bold = TextStyle(
     color: Colors.black,
     fontSize: 24.sp,
@@ -21,6 +26,11 @@ class TextStyles {
   static TextStyle white16semibold = TextStyle(
     color: Colors.white,
     fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle black18semibold = TextStyle(
+    color: Colors.black,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w600,
   );
   static TextStyle blue24bold = TextStyle(
@@ -38,7 +48,12 @@ class TextStyles {
     fontSize: 15.sp,
     fontWeight: FontWeight.w500,
   );
-  static TextStyle blue12reqular = TextStyle(
+  static TextStyle white18medium = TextStyle(
+    color: Colors.white,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle mainblue12reqular = TextStyle(
     color: Colorsmanager.mainBlue,
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
@@ -49,6 +64,12 @@ class TextStyles {
     fontWeight: FontWeight.w400,
   );
   static TextStyle darkblue12reqular = TextStyle(
+    color: Colorsmanager.darkblue,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle lightblack12reqular = TextStyle(
     color: Colorsmanager.lightblack,
     fontSize: 12.sp,
     fontWeight: FontWeight.w500,
@@ -62,5 +83,20 @@ class TextStyles {
     color: Colorsmanager.gray,
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
+  );
+  static TextStyle darkblue18bold = TextStyle(
+    color: Colorsmanager.darkblue,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle morelightergray11regular = TextStyle(
+    color: Colorsmanager.morelightergray,
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle darkblue16bold = TextStyle(
+    color: Colorsmanager.darkblue,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
   );
 }
